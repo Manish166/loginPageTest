@@ -1,0 +1,12 @@
+@import '../../variables.scss';
+
+.heading {
+    margin : 48px 0 24px 0;
+    font-size: $tertiaryFontSize;
+    line-height: $tertiaryLineHeight;
+    color: $primaryTextColor;
+}
+
+.bottom {
+    font-size: $primaryFontSize;
+}

@@ -1,0 +1,22 @@
+@import '../../variables.scss';
+
+.label {
+    display: block;
+    margin : 0 0 8px 0;
+    font-size: $primaryFontSize;
+    line-height: $secondaryLineHeight;
+    color: $secondaryTextColor;
+}
+
+.input {
+    width : 100%;
+    margin : 0 0 12px 0;
+    box-sizing : border-box;
+    height: 38px;
+    border-radius: 5px;
+    font-size : $secondaryFontSize;
+    line-height: $secondaryLineHeight;
+    color: $secondaryTextColor;
+}
+
+
