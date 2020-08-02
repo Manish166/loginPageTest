@@ -6,26 +6,17 @@ import Footer from '../../components/footer'
 import Header from '../../components/header'
 import validator from '../../helper/validator'
 const SignUpPage = () =>{   
-    const [values, setValues] = useState({
-        values : {
-            firstName : '',
-            lastName : '',  
-            userName : '',
-            reUserName : '',
-            password : '',
-            rePassword : ''
-        }
-    })
-    const [erro, setError] = useState(false)
+    const [values, setValues] = useState({})
+    const [errors, setErrors] = useState(false)
     const history = useHistory();
 
     const handleOnChange =(e)=>{
-        setValues([e.target.name] = e.target.value)
+        setValues({...values, [e.target.name] : e.target.value})
     }
     
     const handleSubmit = ()=>{
         console.log('submitted')
-        setError(validator(...values))
+        setError(validator(values))
     }
 
     const redirectToSignIn=()=>{
@@ -40,7 +31,7 @@ const SignUpPage = () =>{
                         name='firstName'
                         label='First name'
                         type='text'
-                        value={values.firstName} 
+                        value={values.firstName || ''} 
                         onChange={handleOnChange}
                         message='Please enter first name'
                         />
@@ -50,7 +41,7 @@ const SignUpPage = () =>{
                         name='lastName'
                         label='Last name'
                         type='text'
-                        value={values.lastName} 
+                        value={values.lastName || ''} 
                         onChange={handleOnChange}
                         message='Please enter last name'/>
                 </div>
@@ -59,28 +50,28 @@ const SignUpPage = () =>{
                 name='userName'
                 label='Username'
                 type='text'
-                value={values.userName} 
+                value={values.userName || ''} 
                 onChange={handleOnChange}
                 message='Please enter username'/>
             <TextInput
                 label='Re-type username'
                 name='reUserName'
                 type='text'
-                value={values.reUserName} 
+                value={values.reUserName || ''} 
                 onChange={handleOnChange}
                 message='Please re-enter first name'/>
             <TextInput
                 label='Password'
                 name='password'
                 type='password'
-                value={values.password} 
+                value={values.password || ''} 
                 onChange={handleOnChange}
                 message='Please enter first name'/>
             <TextInput
                 label='Re-type password'
                 name='rePassword'
                 type='text'
-                value={values.rePassword} 
+                value={values.rePassword || ''} 
                 onChange={handleOnChange}
                 message='Please re-enter first name'/>
             <Button
