@@ -4,10 +4,25 @@ import TextInput from '../../components/textInput'
 import Button from '../../components/button'
 import Footer from '../../components/footer'
 import Header from '../../components/header'
-import validator from '../../helper/validator'
+import {signUpValidator} from '../../helper/validator'
 const SignUpPage = () =>{   
-    const [values, setValues] = useState({})
-    const [errors, setErrors] = useState(false)
+    const [values, setValues] = useState({
+        firstName : '',
+        lastName : '',
+        userName : '',
+        reUserName : '',
+        password : '',
+        rePassword : '',
+
+    })
+    const [errors, setErrors] = useState({
+        firstName : false,
+        lastName : false,
+        userName : false,
+        reUserName : false,
+        password : false,
+        rePassword : false,
+    })
     const history = useHistory();
 
     const handleOnChange =(e)=>{
@@ -16,7 +31,9 @@ const SignUpPage = () =>{
     
     const handleSubmit = ()=>{
         console.log('submitted')
-        setError(validator(values))
+        const errorValues=signUpValidator(values, errors)
+        setErrors({...errors,
+            errors : errorValues})
     }
 
     const redirectToSignIn=()=>{
@@ -31,6 +48,7 @@ const SignUpPage = () =>{
                         name='firstName'
                         label='First name'
                         type='text'
+                        status={errors.firstName || false}
                         value={values.firstName || ''} 
                         onChange={handleOnChange}
                         message='Please enter first name'
@@ -41,6 +59,7 @@ const SignUpPage = () =>{
                         name='lastName'
                         label='Last name'
                         type='text'
+                        status={errors.lastName || false}
                         value={values.lastName || ''} 
                         onChange={handleOnChange}
                         message='Please enter last name'/>
@@ -50,6 +69,7 @@ const SignUpPage = () =>{
                 name='userName'
                 label='Username'
                 type='text'
+                status={errors.userName || false}
                 value={values.userName || ''} 
                 onChange={handleOnChange}
                 message='Please enter username'/>
@@ -57,6 +77,7 @@ const SignUpPage = () =>{
                 label='Re-type username'
                 name='reUserName'
                 type='text'
+                status={errors.reUserName || false}
                 value={values.reUserName || ''} 
                 onChange={handleOnChange}
                 message='Please re-enter first name'/>
@@ -64,6 +85,7 @@ const SignUpPage = () =>{
                 label='Password'
                 name='password'
                 type='password'
+                status={errors.password || false}
                 value={values.password || ''} 
                 onChange={handleOnChange}
                 message='Please enter first name'/>
@@ -71,6 +93,7 @@ const SignUpPage = () =>{
                 label='Re-type password'
                 name='rePassword'
                 type='text'
+                status={errors.reUserName || false}
                 value={values.rePassword || ''} 
                 onChange={handleOnChange}
                 message='Please re-enter first name'/>

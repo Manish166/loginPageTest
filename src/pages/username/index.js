@@ -4,7 +4,7 @@ import TextInput from '../../components/textInput'
 import Button from '../../components/button'
 import Footer from '../../components/footer'
 import Header from '../../components/header'
-import validator from '../../helper/validator'
+import {validator} from '../../helper/validator'
 const UserNamePage = () =>{   
     const [userName, setUserName] = useState('')
     const [error, setError] = useState(false)
