@@ -1,17 +1,17 @@
 import React from 'react'
 import './style.scss'
 
-const TextInput =({name, value, type, onChange})=>{
+const TextInput =({label ,name, value, type, onChange, status, message})=>{
     return(
         <div className="inputContainer">
-            <label className="label">{name}</label>
+            <label className="label">{label}</label>
             <input
                 className="input"
                 name={name}
-                value={value}
+                value={value} 
                 type={type}
                 onChange={onChange}/>
-            <span>this is error message</span>
+            {status === true && <div className="errorContainer">{message}</div>}
         </div>
     )
 }

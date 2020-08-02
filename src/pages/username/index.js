@@ -4,8 +4,10 @@ import TextInput from '../../components/textInput'
 import Button from '../../components/button'
 import Footer from '../../components/footer'
 import Header from '../../components/header'
+import validator from '../../helper/validator'
 const UserNamePage = () =>{   
     const [userName, setUserName] = useState('')
+    const [error, setError] = useState(false)
 
     const history = useHistory();
 
@@ -15,6 +17,7 @@ const UserNamePage = () =>{
     
     const handleSubmit = ()=>{
         console.log('submitted')
+        setError(validator(userName))
     }
 
     const redirectToSignUp=()=>{
@@ -27,7 +30,9 @@ const UserNamePage = () =>{
                 name='Username'
                 type='text'
                 value={userName} 
-                onChange={handleOnChange}/>
+                onChange={handleOnChange}
+                status={error}
+                message="Please enter username"/>
             <Button
                 name='NEXT'
                 onClick={handleSubmit}/>

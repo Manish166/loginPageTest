@@ -4,22 +4,28 @@ import TextInput from '../../components/textInput'
 import Button from '../../components/button'
 import Footer from '../../components/footer'
 import Header from '../../components/header'
+import validator from '../../helper/validator'
 const SignUpPage = () =>{   
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [userName, setUserName] = useState('')
-    const [reUserName, setReUserName] = useState('')
-    const [password, setPassword] = useState('')
-    const [RePassword, setRePassword] = useState('')
-
+    const [values, setValues] = useState({
+        values : {
+            firstName : '',
+            lastName : '',  
+            userName : '',
+            reUserName : '',
+            password : '',
+            rePassword : ''
+        }
+    })
+    const [erro, setError] = useState(false)
     const history = useHistory();
 
     const handleOnChange =(e)=>{
-        setUserName(e.target.value)
+        setValues([e.target.name] = e.target.value)
     }
     
     const handleSubmit = ()=>{
         console.log('submitted')
+        setError(validator(...values))
     }
 
     const redirectToSignIn=()=>{
@@ -29,45 +35,57 @@ const SignUpPage = () =>{
         <div className="mainContainer">
             <Header heading='Create account'/>
             <div className="nameContainer">
-                <div className="fname">
+                <div className="fName">
                     <TextInput
-                        name='First name'
+                        name='firstName'
+                        label='First name'
                         type='text'
-                        value={firstName} 
-                        onChange={handleOnChange}/>
+                        value={values.firstName} 
+                        onChange={handleOnChange}
+                        message='Please enter first name'
+                        />
                 </div>
-                <div className="lname">
+                <div className="lName">
                     <TextInput
-                        name='Last name'
+                        name='lastName'
+                        label='Last name'
                         type='text'
-                        value={lastName} 
-                        onChange={handleOnChange}/>
+                        value={values.lastName} 
+                        onChange={handleOnChange}
+                        message='Please enter last name'/>
                 </div>
             </div>
             <TextInput
-                name='Username'
+                name='userName'
+                label='Username'
                 type='text'
-                value={userName} 
-                onChange={handleOnChange}/>
+                value={values.userName} 
+                onChange={handleOnChange}
+                message='Please enter username'/>
             <TextInput
-                name='Re-type username'
+                label='Re-type username'
+                name='reUserName'
                 type='text'
-                value={reUserName} 
-                onChange={handleOnChange}/>
+                value={values.reUserName} 
+                onChange={handleOnChange}
+                message='Please re-enter first name'/>
             <TextInput
-                name='Password'
+                label='Password'
+                name='password'
                 type='password'
-                value={password} 
-                onChange={handleOnChange}/>
+                value={values.password} 
+                onChange={handleOnChange}
+                message='Please enter first name'/>
             <TextInput
-                name='Re-type password'
+                label='Re-type password'
+                name='rePassword'
                 type='text'
-                value={RePassword} 
-                onChange={handleOnChange}/>
+                value={values.rePassword} 
+                onChange={handleOnChange}
+                message='Please re-enter first name'/>
             <Button
                 name='NEXT'
                 onClick={handleSubmit}/>
-            {/* <div style={{textAlign : 'center', fontSize : '14px'}}> */}
             <div className="tip">
                 <p1>Already have an account? </p1> 
                 <p2 onClick={redirectToSignIn}><strong>Sign in</strong></p2>
