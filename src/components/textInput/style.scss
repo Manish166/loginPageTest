@@ -1,11 +1,13 @@
 @import '../../variables.scss';
 
+.inputContainer{
+    font-size: $secondaryFontSize;
+    line-height: $secondaryLineHeight;
+    color: $colorTwo;
+}
 .label {
     display: block;
     margin : 0 0 8px 0;
-    font-size: $primaryFontSize;
-    line-height: $secondaryLineHeight;
-    color: $secondaryTextColor;
 }
 
 .input {
@@ -13,10 +15,13 @@
     margin : 0 0 12px 0;
     box-sizing : border-box;
     height: 38px;
-    border-radius: 5px;
-    font-size : $secondaryFontSize;
-    line-height: $secondaryLineHeight;
-    color: $secondaryTextColor;
+    border-radius: 4px;
+    border: 1px solid $borderColor;
+}
+
+.input:focus {
+    outline: none !important;
+    border:1px solid $primaryColor;
 }
 
 

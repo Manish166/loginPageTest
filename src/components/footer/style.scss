@@ -1,0 +1,17 @@
+@import '../../variables.scss';
+
+.footerContainer {
+    font-size: $primaryFontSize;
+    line-height: $primaryLineHeight;
+    margin: 0 0 12px 0;
+}
+.footerContainer p1{
+    display: block;
+    color: $colorSix;
+}
+.footerContainer p2{
+    color: $colorFive;
+}
+.footerContainer p2:hover{
+    text-decoration: underline;
+}

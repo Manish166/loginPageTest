@@ -1,0 +1,65 @@
+@import './variables.scss';
+
+.mainContainer {
+    height: 100%;
+    width: 100%;
+}
+
+.tip {
+    text-align: center;
+    font-size: $primaryFontSize;
+    color : $colorFour;
+}
+.tip p2 {
+    color : $colorFive;
+}
+
+.tip p2:hover {
+    text-decoration: underline;
+}
+
+.nameContainer {
+    display: flex;
+}
+
+.fname {
+    flex : 1;
+    margin: 0 5px 0 0;
+}
+
+.lname {
+    flex : 1;
+    margin: 0 0 0 5px;
+}
+
+.bottom {
+    font-size: $primaryFontSize;
+}
+
+.welcomeContainer {
+    margin : 48px 0 24px 0;
+    text-align: center;
+}
+.welcomeContainer p1 {
+    display: block;
+    font-size: $tertiaryFontSize;
+    line-height: $tertiaryLineHeight;
+    color: $colorOne;
+}
+.welcomeContainer p2 {
+    display: block;
+    font-size: $primaryFontSize;
+    line-height: $primaryLineHeight;
+    color: $colorFour;
+}
+.footer {
+    text-align: center;
+    margin: 32px 0 12px 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
