@@ -1,9 +1,9 @@
 ##running instructions
 
-git clone {repository}. 
-npm install. 
-npm start. 
+git clone {repository}<br/>
+npm install<br/>
+npm start<br/>
 
-##features not completed. 
-equality validators 
-few responsive glitches.  
+##features not completed<br/>
+equality validators<br/>
+few responsive glitches<br/>
